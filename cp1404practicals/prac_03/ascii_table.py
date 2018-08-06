@@ -1,22 +1,34 @@
 
-MAX_COLUMNS = 10
-MIN_COLUMNS = 2
 
-LOWER = 33
-UPPER = 127
+LOWER = 10
+UPPER = 50
 
-char = input("Enter a character: ")
-print("The ASCII code for {} is {}".format(char, ord(char)))
-number = int(input("Enter a number between {} and {}: ".format(LOWER, UPPER)))
-while number < LOWER or number > UPPER:
-    number = int(input("Enter a number between {} and {}: ".format(LOWER, UPPER)))
-print("The character for {} is {}".format(number, chr(number)))
+def main():
+    # get and convert ASCII values/characters
+    char = input("Enter a character: ")
+    print("The ASCII code for {} is {}".format(char, ord(char)))
+    number = get_number(LOWER, UPPER)
+    print("The character for {} is {}".format(number, chr(number)))
 
-# ASCII table (single column)
-for value in range(LOWER, UPPER + 1):
-    print("{:3} {:>4}".format(value, chr(value)))
+    # ASCII table (single column)
+    for value in range(LOWER, UPPER + 1):
+        print("{:3} {:>4}".format(value, chr(value)))
 
-# ASCII tables with columns (two versions)
+def get_number(lower = LOWER, upper = UPPER):
+    try:
+        number = int(input("Enter a number between {} and {}: ".format(lower, upper)))
+    except ValueError:
+        print("Please enter a valid number ")
+        number = int(input("Enter a number between {} and {}: ".format(lower, upper)))
+    while number < lower or number > upper:
+        number = int(input("Enter a number between {} and {}: ".format(lower, upper)))
+    return number
+
+main()
+
+
+
+''''# ASCII tables with columns (two versions)
 columns = int(input("Enter number of columns: "))
 while columns < MIN_COLUMNS or columns > MAX_COLUMNS:
     print("Please use a value between {} and {}".format(MIN_COLUMNS, MAX_COLUMNS))
@@ -58,4 +70,4 @@ for row in range(rows + 1):
     value_to_print = value + ((column + 1) * rows)
     if value_to_print <= UPPER:
         print("{:6} {:>2}".format(value_to_print, chr(value_to_print)), end="")
-    print()
+    print()'''
