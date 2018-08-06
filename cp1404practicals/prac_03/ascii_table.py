@@ -1,7 +1,4 @@
-"""
-CP1404/CP5632 - Practical - Suggested Solution
-ASCII table and converter
-"""
+
 MAX_COLUMNS = 10
 MIN_COLUMNS = 2
 
