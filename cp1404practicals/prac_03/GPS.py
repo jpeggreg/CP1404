@@ -1,8 +1,8 @@
 import random
 
 GOPHER_POPULATION = 1000  # starting population of gophers
-MINIMUM_BIRTH_RANGE = 0.10  # 10%
-MAXIMUM_BIRTH_RANGE = 0.20  # 20%
+MINIMUM_BIRTH_RANGE = 0.1  # 10%
+MAXIMUM_BIRTH_RANGE = 0.2  # 20%
 MINIMUM_DEATH_RANGE = 0.05  # 5%
 MAXIMUM_DEATH_RANGE = 0.25  # 25%
 YEARS = 10
@@ -10,23 +10,25 @@ YEARS = 10
 def main():
     gopher_total = GOPHER_POPULATION
     print("Welcome to the Gopher Population Simulator!")
-    for i in range(5):
+    print("Starting Population {} ".format(gopher_total))
+    for i in range(YEARS):
         print("Year " + str(i + 1))
         gophers_born = gopher_births(gopher_total)
         gophers_died = gopher_deaths(gopher_total)
-        gopher_total = int(gopher_total + gophers_born - gophers_died)
-        print("{} gophers were born. {} died.".format(gophers_born, gophers_died))
-        print("Population: {}".format(gopher_total))
-    print("Population: {}".format(gopher_total))
+        gopher_total = (gopher_total + gophers_born - gophers_died)
+        print("\n{:.0f} gophers were born. {:.0f} died.".format(gophers_born, gophers_died))
+        print("Population: {:.0f}".format(gopher_total))
 
 # determines how many gohpers are born based on random total 10% to 20% of current total population
 def gopher_births(gopher_total):
-    gophers_born = int(abs(random.randrange(MINIMUM_BIRTH_RANGE * gopher_total, MAXIMUM_BIRTH_RANGE * gopher_total, 5)))
-    return int(gophers_born)
+    gophers_born = random.uniform(MINIMUM_BIRTH_RANGE * gopher_total, MAXIMUM_BIRTH_RANGE * gopher_total)
+    int(gophers_born)
+    return gophers_born
 
-# determines how many gohpers died based on random total 10% to 20% of current total population
+# determines how many gohpers died based on random total 5% to 25% of current total population
 def gopher_deaths(gopher_total):
-    gophers_died = int(abs(random.randrange(MINIMUM_DEATH_RANGE * gopher_total, MAXIMUM_DEATH_RANGE * gopher_total, 5)))
-    return int(gophers_died)
+    gophers_died = random.uniform(MINIMUM_DEATH_RANGE * gopher_total, MAXIMUM_DEATH_RANGE * gopher_total)
+    int(gophers_died)
+    return gophers_died
 
 main()
