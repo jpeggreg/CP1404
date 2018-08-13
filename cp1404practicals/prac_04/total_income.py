@@ -14,6 +14,7 @@ def main():
         incomes.append(income)
     print_income_report(incomes, total_months)
 
+# takes total months and incomes and prints full report
 def print_income_report(incomes, total_months):
     print("\nIncome Report\n-------------")
     total = 0
