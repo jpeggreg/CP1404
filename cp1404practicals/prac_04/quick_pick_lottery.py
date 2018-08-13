@@ -1,5 +1,9 @@
 import random
 
+NUMBER_DRAW = 6
+MINIMUM = 1
+MAXIMUM = 45
+
 def main():
     quick_picks = int(input("How many quick picks? "))
     tickets = []
@@ -11,8 +15,8 @@ def main():
 
 def ticket_generator():
     ticket = []
-    while len(ticket) != 6:
-        number = [random.randrange(1, 46, 1)]
+    while len(ticket) != NUMBER_DRAW:
+        number = [random.randrange(MINIMUM, MAXIMUM, 1)]
         if number in ticket:
             pass
         else:

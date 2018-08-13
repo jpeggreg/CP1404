@@ -1,9 +1,11 @@
 
 
 numbers = []
-total = 5
-for i in range(total):
-    number = int(input("Number: "))
+total = 0
+number = int(input("Number 1: "))
+while number > 0:
+    total += 1
+    number = int(input("Number {}: ".format(total + 1)))
     numbers.append(number)
 print("The first number is {}".format(numbers[0]))
 print("The last number is {}".format(numbers[-1]))
