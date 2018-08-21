@@ -1,16 +1,15 @@
 #TARIFF_11 = 0.244618
 #TARIFF_31 = 0.136928
 
-tariff_dict = {"TARIFF_11": 0.244618, "TARIFF_31": 0.136928}
+tariff_dict = {"11": 0.244618, "31": 0.136928}
 
 print("Electricity bill estimator 2.0\n")
-for key in tariff_dict:
-    print(key)
-cents_per_kwh = (input("Which tariff? "))
-if TARIFF_11:
-    cents_per_kwh = tariff_dict[key : 0]
-elif TARIFF_31:
-    cents_per_kwh = tariff_dict[key : 1]
+for tariff in tariff_dict:
+    cents_per_kwh = (input("Which tariff? {}".format(tariff)))
+if 11:
+    cents_per_kwh = tariff_dict[11]
+elif 31:
+    cents_per_kwh = tariff_dict[31]
 else:
     print("Invalid choice")
     cents_per_kwh = float(input("\nWhich tariff? "))
