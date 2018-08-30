@@ -1,14 +1,13 @@
 
 
-print("hello world")
+#print("hello world")
 
-while book_choice is None:
-    try:
-        book_choice = int(input(">>> "))
-    except ValueError:
-        if book_choice != int:
-            print("Invalid input; enter a valid number")
-        elif book_choice <= 0:
-            print("Number must be > 0")
-        elif book_choice > len(books):
-            print("Invalid book number")
+'''d = {'a': 3, 'b': 2, 'c': 1}
+for k in sorted(list(d.keys())):
+    print(k, d[k], sep='', end='')'''
+
+'''d = {'a': 1, 'b': 2, 'c': 3}
+print(d.get('a'))'''
+
+d = {'a': 1, 'b': 2, 'c': 3}
+print(d.get(2))
