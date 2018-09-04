@@ -1,0 +1,14 @@
+BoxLayout:
+    orientation: 'vertical'
+    #orientation: 'horizontal'
+    TextInput:
+        id: input_score
+        text: ''
+        on_text: app.handle_score()
+    Button:
+        id: output_label
+        text: 'Grade'
+        on_press: app.handle_score()
+    Label:
+        color: (1, 1, 0, 1)
+        text: 'Enter your score in the white box'
