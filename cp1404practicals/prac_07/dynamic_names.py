@@ -7,10 +7,9 @@ from kivy.uix.label import Label
 from kivy.properties import StringProperty
 
 class DynamicFruitApp(App):
-    status_text = StringProperty()
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, *fruit):
+        super().__init__(*fruit)
         self.fruitlist = ['apples', 'bananas', 'oranges', 'grapes', 'pears']
 
     def build(self):
@@ -21,12 +20,12 @@ class DynamicFruitApp(App):
 
     def create_widgets(self):
         for fruit in self.fruitlist:
-            temp_fruit = Label(id=fruit)
-            temp_fruit.bind(on_release=self.press_button)
+            temp_fruit = Label(text=fruit)
+            temp_fruit.bind(on_release=self.new_label)
             self.root.ids.fruit.add_widget(temp_fruit)
 
-    def press_button(self):
-        return self.status_text("{}".format(self.fruitlist[fruit]))
-
+    def new_label(self):
+        for fruit in self.fruitlist:
+            self.status_text("{}".format(self.fruitlist[fruit]))
 
 DynamicFruitApp().run()
