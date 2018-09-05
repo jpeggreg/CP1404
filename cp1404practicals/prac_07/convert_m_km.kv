@@ -1,3 +1,23 @@
+
+<Widget>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    color: 0, 0, 0, 1
+
+<Button>:
+    font_size: 56
+    canvas.after:
+    color: 0, 0, 0, 1
+
+<TextInput>:
+    canvas.after:
+    color: 0, 0, 0, 1
+
+
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
@@ -23,4 +43,4 @@ BoxLayout:
         id: output_label
         font_size: 48
         text: '54.717'
-        color: (1, 1, 0, 1)
+        color: 0, 0, 0, 1

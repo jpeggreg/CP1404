@@ -28,8 +28,9 @@ class DynamicNameAgeApp(App):
             self.root.ids.name_button.add_widget(temp_button)
 
     def press_entry(self, instance):
+        name = instance.text
         age = instance.id
-        self.status_text = "{}".format(age)
+        self.status_text = "{} is {} years old".format(name, age)
 
 
 DynamicNameAgeApp().run()

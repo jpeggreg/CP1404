@@ -59,5 +59,4 @@ class QuickSum(App):
         for i in range(9):
             self.root.ids.digits.children[i].text = str(digits[i])
 
-
 QuickSum().run()
