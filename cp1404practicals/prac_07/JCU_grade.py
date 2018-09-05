@@ -14,14 +14,16 @@ class JCU_grade(App):
         value = self.get_validated_score()
         if value >=85 and value <=100:
             self.root.ids.output_label.text = "High Distinction"
-        elif value >=76:
+        elif value >= 75 and value <= 84:
             self.root.ids.output_label.text = "Distinction"
-        elif value >=65:
+        elif value >= 65 and value <= 74:
             self.root.ids.output_label.text = "Credit"
-        elif value >=50:
+        elif value >= 50 and value <= 64:
             self.root.ids.output_label.text = "Pass"
-        else:
+        elif value >= 0 and value <= 49:
             self.root.ids.output_label.text = "Fail"
+        else:
+            self.root.ids.output_label.text = "Invalid score"
 
     def get_validated_score(self):
         try:
