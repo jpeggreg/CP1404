@@ -2,14 +2,9 @@ BoxLayout:
     orientation: 'vertical'
     BoxLayout:
         orientation: 'vertical'
-        Button:
-            id: names
-            cols: 1
-            orientation: 'vertical'
-        Label:
-            size_hint_y: 0.1
-            text: app.status_text
-    BoxLayout:
-        orientation: 'horizontal'
-        Label:
-            text: ""
+        id: name_button
+        cols: 1
+        orientation: 'vertical'
+    Label:
+        size_hint_y: 0.1
+        text: app.status_text

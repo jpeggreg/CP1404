@@ -7,8 +7,8 @@ class DynamicNameAgeApp(App):
 
     status_text = StringProperty()
 
-    def __init__(self, **names_ages):
-        super().__init__(**names_ages)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         self.nameslist = []
         with open("names.csv", "r+") as name_file:
             for name in name_file:
@@ -22,21 +22,14 @@ class DynamicNameAgeApp(App):
         return self.root
 
     def create_widgets(self):
-        for i in range(len(self.nameslist)):
-            temp_name = Button(text=str([i][0]))
-            temp_name.bind(on_release=self.press_entry(self.nameslist[name][0]))
-            self.root.ids.name.add_widget(temp_name)
-
-    def press_entry(self, temp_name):
-        self.status_text = "{}".format(self.nameslist[temp_name][1])
-
-
-    '''def new_label(self):
         for name in self.nameslist:
-            self.status_text = "{}".format(self.nameslist[name][1])
+            temp_button = Button(text=name[0], id=name[1])
+            temp_button.bind(on_release=self.press_entry)
+            self.root.ids.name_button.add_widget(temp_button)
 
-    def show_age(self, nameslist):
-        for name in range(len(nameslist)):
-            print(name)'''
+    def press_entry(self, instance):
+        age = instance.id
+        self.status_text = "{}".format(age)
+
 
 DynamicNameAgeApp().run()
