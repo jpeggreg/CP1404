@@ -8,6 +8,9 @@ class HelloWorld(App):
         self.root = Widget()
         return self.root  # build() should always return a widget object
 
+    def try_this(self):
+        self.x = 0
+
 
 # create a custom App object and start it running
 HelloWorld().run()
