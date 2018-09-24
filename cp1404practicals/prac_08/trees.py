@@ -118,8 +118,7 @@ class FruitTree(Tree):
  |  """
     def __init__(self):
         """Initialise a Tree with trunk_height of 1 and full row of leaves."""
-        self._trunk_height = 1
-        self._leaves = TREE_LEAVES_PER_ROW
+        super().__init__()
         self._fruit = 1
 
     def __str__(self):
