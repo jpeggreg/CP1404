@@ -30,10 +30,11 @@ def main():
     print(ext_list)
 
     # create list of category keys to associate with extensions based on user input
-    key_list = ['Docs', 'Docs', 'Images', 'Images', 'Docs', 'Spreadsheets', 'Spreadsheets', 'Images']
-    '''for ext in ext_list:
+    # test list without having user input ['Docs', 'Docs', 'Images', 'Images', 'Docs', 'Spreadsheets', 'Spreadsheets', 'Images']
+    key_list = []
+    for ext in ext_list:
         new_key = input("What category would you like to sort {} files into?".format(ext))
-        key_list.append(new_key)'''
+        key_list.append(new_key)
     print(key_list)
 
     # merge lists into dictionary grouping file extensions into each category
@@ -46,9 +47,10 @@ def main():
     for key in ext_dict:
         try:
             os.mkdir(key)
-            for i, value in ext_dict.values():
-                if filename[filename.find('.'):].strip(".") == (value[i]):
-                       shutil.move(filename, key)
+            for value in ext_dict.values():
+                for filename in os.listdir('.'):
+                    if filename[filename.find('.'):].strip(".") == key[value]:
+                        shutil.move(filename, key)
         except:
             FileExistsError
             print("Folder already exists")
